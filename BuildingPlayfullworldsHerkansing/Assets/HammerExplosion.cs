@@ -1,23 +1,38 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Tilemaps;
 
-public class MapDestroyer : MonoBehaviour
+public class HammerExplosion : MonoBehaviour
 {
-    public SphereCollider collider;
-    public Coroutine routine;
+    public float countdown = 2;
+    public ParticleSystem particle;
+    private int particleInitializerInt = 0;
     public float maxRadius;
     public float radiusIncreaseSpeed;
     public float explosionRefreshspeed;
-    
-    private void OnTriggerEnter(Collider other)
-    { 
-        if (other.tag == "Breakable")
+    public SphereCollider collider;
+    private Coroutine routine;
+    [SerializeField]
+    private GameObject renderer;
+    [SerializeField]
+    private BuildCrate buildCrate;
+    public void Start()
+    {
+        particle.Stop();
+    }
+    void Update()
+    {
+        countdown -= Time.deltaTime;
+        if (countdown <= 0)
         {
-            StartCoroutine(other.GetComponent<BreakableObjectManager>().DestroyBreakableObject());
+            StartCoroutine(Explode());
+            renderer.SetActive(false);
+            if (particleInitializerInt < 1)
+            {
+                particle.Play();
+                buildCrate.DropCrate();
+                particleInitializerInt++;
+            }
         }
     }
     public IEnumerator Explode()

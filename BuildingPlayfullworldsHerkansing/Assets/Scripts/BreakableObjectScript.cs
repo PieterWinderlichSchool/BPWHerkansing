@@ -7,20 +7,20 @@ using Random = UnityEngine.Random;
 public class BreakableObjectScript : MonoBehaviour
 {
     public GameObject powerup;
-
-    private void OnTriggerEnter(Collider other)
+    public BreakableObjectManager manager;
+    public float spawnChance;
+    private void Start()
     {
-        if (other.tag == "Bomb")
-        {
-            float randomNumber = Random.value;
-            if (randomNumber > 0.7f)
+        manager.isDestroyed += spawnPowerup;
+    }
+
+    private void spawnPowerup(){
+        float randomNumber = Random.value;
+            if (randomNumber > spawnChance)
             {
                 GameObject powerUp = Instantiate(powerup, transform.position, Quaternion.identity);
                 powerUp.transform.rotation = Quaternion.Euler(0, 0, 90);
-                powerUp.transform.position =
-                    new Vector3(transform.position.x, transform.position.y-0.5f, transform.position.z);
+                powerUp.transform.position = new Vector3(transform.position.x, transform.position.y-0.5f, transform.position.z);
             }
-            Destroy(this.gameObject);
-        }
     }
 }

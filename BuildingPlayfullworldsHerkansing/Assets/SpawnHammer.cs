@@ -1,18 +1,15 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class SpawnBomb : MonoBehaviour
+public class SpawnHammer : MonoBehaviour
 {
     public Tilemap tilemap;
-    public GameObject bomb;
+    public GameObject hammer;
     public bool isPlayer2;
     [SerializeField]
     private float time = 3;
-    public delegate void SignalUpgrade(bool isPlayer2);
-    public SignalUpgrade signalUpgrade;
     void Update()
     {
         time += Time.deltaTime;
@@ -21,35 +18,31 @@ public class SpawnBomb : MonoBehaviour
             time = 3;
             if (!isPlayer2)
             {
-                if (Input.GetKeyDown(KeyCode.Space))
+                if (Input.GetKeyDown(KeyCode.C))
                 {
-                    DropBomb();
+                    DropHammer();
                     time = 0;
                 }
             }
             else
-            {if (Input.GetKeyDown(KeyCode.KeypadEnter))
+            {if (Input.GetKeyDown(KeyCode.KeypadPlus))
                 {
-                    DropBomb();
+                    DropHammer();
                     time = 0;
                 }
             } 
         }
     }
-    public void DropBomb()
+    public void DropHammer()
     {
         Vector3 worldPos = gameObject.transform.position;
         Vector3Int cell = tilemap.WorldToCell(worldPos);
         Vector3 cellCenterPos = tilemap.GetCellCenterWorld(cell);
-        Instantiate(bomb, new Vector3(cellCenterPos.x,cellCenterPos.y +0.25f,cellCenterPos.z), Quaternion.identity); 
+        Instantiate(hammer, new Vector3(cellCenterPos.x,cellCenterPos.y +0.75f,cellCenterPos.z), hammer.transform.rotation); 
     }
+
     public float GetTime()
     {
         return time;
-    }
-    public bool returnPlayer()
-    {
-        signalUpgrade(isPlayer2);
-        return isPlayer2;
     }
 }

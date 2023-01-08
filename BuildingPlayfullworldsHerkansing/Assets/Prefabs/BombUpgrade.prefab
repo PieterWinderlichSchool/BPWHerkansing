@@ -7,6 +7,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6533989838730506487, guid: f7932c8411c964a4baf8c197618d8a5a, type: 3}
+      propertyPath: ShapeModule.arc.value
+      value: 360
+      objectReference: {fileID: 0}
+    - target: {fileID: -6533989838730506487, guid: f7932c8411c964a4baf8c197618d8a5a, type: 3}
+      propertyPath: ShapeModule.m_Scale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6533989838730506487, guid: f7932c8411c964a4baf8c197618d8a5a, type: 3}
+      propertyPath: ShapeModule.m_Scale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6533989838730506487, guid: f7932c8411c964a4baf8c197618d8a5a, type: 3}
+      propertyPath: ShapeModule.arc.spread
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6533989838730506487, guid: f7932c8411c964a4baf8c197618d8a5a, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: -6533989838730506487, guid: f7932c8411c964a4baf8c197618d8a5a, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -6533989838730506487, guid: f7932c8411c964a4baf8c197618d8a5a, type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 2736470038040772377, guid: f7932c8411c964a4baf8c197618d8a5a, type: 3}
       propertyPath: m_Name
       value: BombUpgrade
@@ -69,11 +97,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3107943450872548024, guid: f7932c8411c964a4baf8c197618d8a5a, type: 3}
       propertyPath: maxRadius
-      value: 4.5
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 3107943450872548024, guid: f7932c8411c964a4baf8c197618d8a5a, type: 3}
       propertyPath: radiusIncreaseSpeed
       value: 0.0075
+      objectReference: {fileID: 0}
+    - target: {fileID: 9071825003000845147, guid: f7932c8411c964a4baf8c197618d8a5a, type: 3}
+      propertyPath: m_Volume
+      value: 0.8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7932c8411c964a4baf8c197618d8a5a, type: 3}

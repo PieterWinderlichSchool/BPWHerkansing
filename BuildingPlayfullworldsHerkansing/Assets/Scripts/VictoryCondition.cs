@@ -30,9 +30,7 @@ public class VictoryCondition : MonoBehaviour
                 {
                     canvas.EndGame(0);
                 }
-
                 Time.timeScale = 0;
-                //Destroy(other.gameObject);
             }
         }
     }
