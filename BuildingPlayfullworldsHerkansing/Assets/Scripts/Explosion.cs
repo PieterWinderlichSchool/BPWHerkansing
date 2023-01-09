@@ -10,10 +10,8 @@ public class Explosion : MonoBehaviour
     public MeshRenderer renderer;
     public VictoryCondition vCondition;
     private int particleInitializerInt = 0;
-    [SerializeField]
-
+    
     public delegate void Explodes();
-
     public Explodes exploded;
     public void Start()
     {
@@ -30,11 +28,9 @@ public class Explosion : MonoBehaviour
            renderer.enabled = false;
            if (particleInitializerInt < 1)
            {
-               
                particle.Play();
                exploded();
                particleInitializerInt++;
-               
            }
         }
     }

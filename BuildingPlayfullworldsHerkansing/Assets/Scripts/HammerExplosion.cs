@@ -16,6 +16,9 @@ public class HammerExplosion : MonoBehaviour
     private GameObject renderer;
     [SerializeField]
     private BuildCrate buildCrate;
+    
+    public delegate void Explodes();
+    public Explodes exploded;
     public void Start()
     {
         particle.Stop();
@@ -31,6 +34,8 @@ public class HammerExplosion : MonoBehaviour
             {
                 particle.Play();
                 buildCrate.DropCrate();
+                Debug.Log("hit");
+                exploded();
                 particleInitializerInt++;
             }
         }

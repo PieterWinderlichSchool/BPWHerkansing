@@ -10,6 +10,7 @@ public class SpawnHammer : MonoBehaviour
     public bool isPlayer2;
     [SerializeField]
     private float time = 3;
+
     void Update()
     {
         time += Time.deltaTime;
