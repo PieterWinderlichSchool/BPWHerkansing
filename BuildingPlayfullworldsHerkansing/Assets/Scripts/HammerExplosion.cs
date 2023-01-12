@@ -34,7 +34,6 @@ public class HammerExplosion : MonoBehaviour
             {
                 particle.Play();
                 buildCrate.DropCrate();
-                Debug.Log("hit");
                 exploded();
                 particleInitializerInt++;
             }
